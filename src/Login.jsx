@@ -7,6 +7,11 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
+  const [isEmailValid, setIsEmailValid] = useState("");
+  const [isPassValid, setIsPassValid] = useState("");
+
+  // const [isDisabled, setIsDisabled] = useState(true);
+
 
   const onEmailChange = (event) => {
     // console.log(event.target.value);
@@ -18,11 +23,18 @@ const Login = () => {
   };
 
   const onSubmitClick = () => {
-    if(!email.length && !pass.length) {
-      console.log('ffffff')
+    if(!email.length ) {
+      console.log("Please email id");
+      setIsEmailValid("Please email id");
+    } else if (!pass.length) {
+      setIsEmailValid('');
+      console.log("Please enter password");
+      setIsPassValid("Please enter password");
     } else {
       console.log("email :" + email);
       console.log("password : " + pass);
+      setEmail("");
+      setPass("");
     }
   };
 
@@ -34,8 +46,9 @@ const Login = () => {
         type="email"
         clsName="form-control"
         placeholder="Enter email"
-        errorMsg="test"
+        errorMsg={isEmailValid}
         onChange={onEmailChange}
+        val={email}
       />
       <UserInput
         label="Password"
@@ -43,12 +56,12 @@ const Login = () => {
         type="password"
         clsName="form-control"
         placeholder="Enter password"
-        errorMsg=""
+        errorMsg={isPassValid}
         onChange={onPasswordChange}
+        val={pass}
       />
       <SubmitButton
         disabled={false}
-        type="submit"
         title="Submit"
         clsName="btn btn-primary"
         onClick={onSubmitClick}

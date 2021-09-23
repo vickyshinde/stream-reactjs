@@ -1,9 +1,8 @@
-const SubmitButton = ({ clsName, onClick, title, type, disabled }) => {
+const SubmitButton = ({ clsName, onClick, title, disabled }) => {
   return (
     <button
       disabled={disabled}
       onClick={onClick}
-      type={type}
       className={clsName}
     >
       {title}

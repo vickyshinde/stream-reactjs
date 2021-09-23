@@ -6,6 +6,7 @@ const UserInput = ({
   placeholder,
   errorMsg,
   onChange,
+  val,
 }) => {
   return (
     <div className="form-group">
@@ -16,11 +17,12 @@ const UserInput = ({
         id={id}
         placeholder={placeholder}
         autoComplete="off"
+        value={val}
         onChange={(event) => {
           onChange(event);
         }}
       />
-      {errorMsg && <small className="form-text text-error">{errorMsg}</small>}
+      {errorMsg && <small className="form-text text-danger">{errorMsg}</small>}
     </div>
   );
 };
