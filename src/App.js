@@ -1,9 +1,11 @@
-import Login from './Login'
+// import Login from './Login'
+import LoginClassCom from './LoginClassCom'
 
 function App() {
   return (
     <div className="container">
-      <Login />
+      {/* <Login /> */}
+      <LoginClassCom />
     </div>
   );
 }

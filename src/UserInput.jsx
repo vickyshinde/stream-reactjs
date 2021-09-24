@@ -27,4 +27,13 @@ const UserInput = ({
   );
 };
 
+UserInput.defaultProps = {
+  label: "Input",
+  onChange: () => {}
+}
+
+// UserInput.propTypes = {
+  // label: PropTypes.string
+// }
+
 export default UserInput;
