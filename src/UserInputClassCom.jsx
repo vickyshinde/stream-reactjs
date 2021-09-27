@@ -20,7 +20,7 @@ class UserInputClassCom extends React.Component {
             this.props.onChange(event.target.value);
           }}
         />
-        {this.props.errorMsg && (
+        {this.props.isValid && (
           <small className="form-text text-danger">{this.props.errorMsg}</small>
         )}
       </div>
@@ -44,6 +44,8 @@ UserInputClassCom.propTypes = {
   type: PropTypes.string,
   clsName: PropTypes.string,
   placeholder: PropTypes.string,
+  errorMsg: PropTypes.string,
+  isValid: PropTypes.bool,
   value: PropTypes.string,
   onChange: PropTypes.func,
 };

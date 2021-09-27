@@ -8,6 +8,11 @@ class LoginClassCom extends React.Component {
     this.state = {
       email: "",
       pass: "",
+      emailPrint: "",
+      passPrint: "",
+      isShow: false,
+      isEmailValid: false,
+      isPassValid: false,
       canSubmit: false,
     };
     this.onEmailChange = this.onEmailChange.bind(this);
@@ -17,28 +22,62 @@ class LoginClassCom extends React.Component {
 
   onEmailChange(email) {
     console.log(email);
+    let validEmail = new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email);
+
+    // email is typing
+    if(email) {
+      this.setState({
+        isEmailValid: true,
+        canSubmit: false,
+      });
+    }
+
+    // check email format
+    if (validEmail) {
+      this.setState({
+        isEmailValid: false,
+        canSubmit: email && this.state.pass,
+      });
+    } else {
+      console.log('invalid');
+    }
     this.setState({
       email: email,
-      canSubmit: email && this.state.pass
     });
+
   }
 
   // state change call back
   onPasswordChange(pass) {
-    console.log(pass);
+    // pass is typing
+    if (pass.length <= 8) {
+      this.setState({
+        isPassValid: true,
+        canSubmit: false,
+      });
+    } else {
+      this.setState({
+          isPassValid: false,
+          canSubmit: pass && this.state.email,
+        }
+      );
+    }
     this.setState({
       pass: pass,
-    }, () => {
-      this.setState({
-        canSubmit: pass && this.state.email,
-      });
     });
+    // console.log(pass);
   }
 
   onSubmitClick() {
 
       console.log("email :" + this.state.email);
       console.log("password : " + this.state.pass);
+
+    this.setState({
+      emailPrint: this.state.email,
+      passPrint: this.state.pass,
+      isShow: true,
+    });
 
   }
 
@@ -51,7 +90,8 @@ class LoginClassCom extends React.Component {
           type="email"
           clsName="form-control"
           placeholder="Enter email"
-          // errorMsg={isEmailValid}
+          errorMsg={"Please enter valid email id"}
+          isValid={this.state.isEmailValid}
           onChange={this.onEmailChange}
           val={this.state.email}
         />
@@ -61,16 +101,23 @@ class LoginClassCom extends React.Component {
           type="password"
           clsName="form-control"
           placeholder="Enter password"
-          // errorMsg={isPassValid}
+          errorMsg={"Please enter min 8 character password"}
+          isValid={this.state.isPassValid}
           onChange={this.onPasswordChange}
           val={this.state.pass}
         />
         <SubmitButton
           disabled={!this.state.canSubmit}
           title="Submit"
-          clsName="btn btn-primary"
+          clsName="btn btn-primary mb-4"
           onClick={this.onSubmitClick}
         />
+        {this.state.isShow && (
+          <>
+            <code>Email - {this.state.emailPrint}</code>
+            <code>password - {this.state.passPrint}</code>
+          </>
+        )}
       </div>
     );
   }
