@@ -1,11 +1,15 @@
 // import Login from './Login'
-import LoginClassCom from './LoginClassCom'
+// import LoginClassCom from './LoginClassCom'
+import LifecycleMethods from './LifecycleMethods'
 
 function App() {
   return (
     <div className="container">
-      {/* <Login /> */}
-      <LoginClassCom />
+      <div className="centerWrap">
+        {/* <Login /> */}
+        {/* <LoginClassCom /> */}
+        <LifecycleMethods />
+      </div>
     </div>
   );
 }

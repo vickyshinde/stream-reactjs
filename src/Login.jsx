@@ -39,7 +39,7 @@ const Login = () => {
   };
 
   return (
-    <div className="loginWrap">
+    <>
       <UserInput
         label="Email address"
         id="email"
@@ -66,7 +66,7 @@ const Login = () => {
         clsName="btn btn-primary"
         onClick={onSubmitClick}
       />
-    </div>
+    </>
   );
 };
 

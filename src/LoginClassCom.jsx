@@ -8,8 +8,8 @@ class LoginClassCom extends React.Component {
     this.state = {
       email: "",
       pass: "",
-      emailPrint: "",
-      passPrint: "",
+      // emailPrint: "",
+      // passPrint: "",
       isShow: false,
       isEmailValid: false,
       isPassValid: false,
@@ -74,8 +74,8 @@ class LoginClassCom extends React.Component {
       console.log("password : " + this.state.pass);
 
     this.setState({
-      emailPrint: this.state.email,
-      passPrint: this.state.pass,
+      // emailPrint: this.state.email,
+      // passPrint: this.state.pass,
       isShow: true,
     });
 
@@ -83,7 +83,7 @@ class LoginClassCom extends React.Component {
 
   render() {
     return (
-      <div className="loginWrap">
+      <>
         <UserInputClassCom
           label="Email address"
           id="email"
@@ -114,11 +114,11 @@ class LoginClassCom extends React.Component {
         />
         {this.state.isShow && (
           <>
-            <code>Email - {this.state.emailPrint}</code>
-            <code>password - {this.state.passPrint}</code>
+            <code>Email - {this.state.email}</code>
+            <code>password - {this.state.pass}</code>
           </>
         )}
-      </div>
+      </>
     );
   }
 };
