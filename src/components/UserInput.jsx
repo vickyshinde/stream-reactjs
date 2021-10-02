@@ -5,6 +5,7 @@ const UserInput = ({
   clsName,
   placeholder,
   errorMsg,
+  isValid,
   onChange,
   val,
 }) => {
@@ -22,7 +23,9 @@ const UserInput = ({
           onChange(event);
         }}
       />
-      {errorMsg && <small className="form-text text-danger">{errorMsg}</small>}
+      {isValid && (
+        <small className="form-text text-danger">{errorMsg}</small>
+      )}
     </div>
   );
 };

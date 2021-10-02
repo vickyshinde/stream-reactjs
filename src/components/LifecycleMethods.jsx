@@ -1,6 +1,6 @@
 import React from 'react'
 import LifecycleMethodsChild from "./LifecycleMethodsChild";
-import LifecycleMethodsUnmount from "./LifecycleMethodsUnmount";
+// import LifecycleMethodsUnmount from "./LifecycleMethodsUnmount";
 
 class LifecycleMethods extends React.Component {
   constructor() {
@@ -46,10 +46,10 @@ class LifecycleMethods extends React.Component {
       <>
         <h1>Component Lifecycle Methods</h1>
         <LifecycleMethodsChild childTitle={this.state.childTitle} />
-        {
+        {/* {
           this.state.showComponent &&
           <LifecycleMethodsUnmount unmountTitle={this.state.unmountTitle} />
-        }
+        } */}
       </>
     );
   }

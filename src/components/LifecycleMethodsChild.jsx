@@ -24,7 +24,7 @@ class LifecycleMethodsChild extends React.Component {
   static getDerivedStateFromProps(nextProps) {
     console.log("Child - getDerivedStateFromProps", nextProps);
     return {
-      value: nextProps.childTitle === "Updated Child Component" ? 100 : null,
+      value: nextProps.childTitle === "Updated Child Component" ? 'Updated props' : null,
     };
   }
 
